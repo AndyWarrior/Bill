@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1429420862 source:c:\users\andres\documents\programas\bill\main.cpp
+	<GLUT/glut.h>
+	<windows.h>
+	<GL/glut.h>
+	"GameT.h"
+	<iostream>
+
+1421537453 c:\users\andres\desktop\glut\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1429420862 c:\users\andres\documents\programas\bill\gamet.h
+	"Target.h"
+	"Player.h"
+	<iostream>
+
+1429594332 c:\users\andres\documents\programas\bill\target.h
+	<string.h>
+	<GLUT/glut.h>
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1429420862 c:\users\andres\documents\programas\bill\player.h
+	<iostream>
+

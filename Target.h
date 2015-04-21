@@ -161,6 +161,7 @@ bool Target::hit(char po, char playerColor){
 * on a positive z. Check if they are the same color is still missing.*/
     if(po == position && playerColor == color){
         if(z >= 2 ){
+            reset();
             return true;
         }
     }

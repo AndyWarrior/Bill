@@ -10,6 +10,7 @@ int level = 0;
 double width, height;
 GameT game;
 char color;
+bool inGame = false;
 #include <iostream>
 using namespace std;
 
@@ -51,21 +52,7 @@ void display(void){
             } else {
                 glColor3ub(10, 200, 35);
             }
-            glVertex3d(0,0,0);
-            //left corner
-            glVertex3d(-1, .5, 2);
-            //right corner
-            glColor3ub(255,0,0);
-            glVertex3d(1, .5, 0);
-            //left
-            glColor3ub(0,255,0);
-            glVertex3d(-1,-0.25, 0);
-            //right
-            glColor3ub(0,0,255);
-            glVertex3d(1,-0.25, 0);
-            //center
-            glColor3ub(0,135,0);
-            glVertex3d(0, 0.5, 0);
+
         glEnd();
 
         //Bill's body
@@ -87,6 +74,16 @@ void timer (int v)
 {
     glutPostRedisplay();
     glutTimerFunc(100, timer, 1);
+
+}
+
+void timer2 (int v)
+{
+    if(game.updateTimer()){
+        level = 0;
+        inGame = false;
+    }
+    glutTimerFunc(1000, timer2, 1);
 
 }
 
@@ -119,17 +116,22 @@ void startGame(int l){
 
 void clic(int button, int state, int x, int y)
 {
-    y -= (height/2);
-    cout << x << ", " << y << endl;
-    if(y >= -20 && y <= 20 ){ //level two
-        cout << "hola" << endl;
-        startGame(2);
-    } else if(y >= -1*(((height/2)*.10)+50) && y <= -1*(((height/2)*.10)+10)){ //level one
-        cout << "toop" << endl;
-        startGame(1);
-    }else if(y <= (((height/2)*.10)+50) && y >= (((height/2)*.10)+10)){ //level three
-        cout << "gaaah" << endl;
-        startGame(3);
+    if (!inGame){
+        y -= (height/2);
+        cout << x << ", " << y << endl;
+        if(y >= -20 && y <= 20 ){ //level two
+            cout << "hola" << endl;
+            startGame(2);
+            inGame = true;
+        } else if(y >= -1*(((height/2)*.10)+50) && y <= -1*(((height/2)*.10)+10)){ //level one
+            cout << "toop" << endl;
+            startGame(1);
+            inGame = true;
+        }else if(y <= (((height/2)*.10)+50) && y >= (((height/2)*.10)+10)){ //level three
+            cout << "gaaah" << endl;
+            startGame(3);
+            inGame = true;
+        }
     }
 }
 
@@ -155,7 +157,12 @@ void key_Stroke(unsigned char key, int xs, int ys)
         case 'q':
         case 'Q':
         case 27:
-            exit(0);
+            if(inGame){
+                inGame = false;
+                level = 0;
+            }
+            else
+                exit(0);
             break;
     }
 
@@ -173,6 +180,7 @@ int main(int argc, char** argv)
     glutReshapeFunc(reshape);
     glutMouseFunc(clic);
     glutTimerFunc(300, timer, 1);
+    glutTimerFunc(1000, timer2, 1);
 
     glutKeyboardFunc(key_Stroke);
     glutMainLoop();

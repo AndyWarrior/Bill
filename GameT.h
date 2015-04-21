@@ -14,11 +14,14 @@ class GameT
         void changeLevel(int l);
         void changeColor();
         char getColor();
+        bool updateTimer();
 
     private:
         Target targets[10] =  {Target(1), Target(1), Target(1), Target(1), Target(1)};
         Target rubbish[10] =  {Target(1, true), Target(1, true), Target(1, true)};
         int level;
+        int timer;
+        int score;
         Player player;
 
 };
@@ -26,11 +29,15 @@ class GameT
 GameT::GameT(){
 /* Game usually starts on level 1. */
     level = 1;
+    timer = 60;
+    score = 0;
     player = Player();
 }
 
 GameT::GameT(int l){
     level = l;
+    timer = 60;
+    score = 0;
     player = Player();
     changeLevel(l);
 }
@@ -57,6 +64,8 @@ bool GameT::checkHit(char pos){
 * returns false. Still missing: color. */
     for(int i = 0; i < 2; i++){
         if(targets[i].hit(pos, player.getColor())){
+            score += 50;
+            cout << score << endl;
             return true;
         }
     }
@@ -77,5 +86,13 @@ char GameT::getColor(){
 
 void GameT::changeColor(){
     player.changeColor();
+}
+
+bool GameT::updateTimer(){
+    timer--;
+    if (timer <= 0)
+        return true;
+    else
+        return false;
 }
 #endif // GAMET_H_INCLUDED

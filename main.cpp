@@ -58,7 +58,15 @@ void display(void){
         //Bill's body
         glPushMatrix();
         glTranslated(0,-2,0);
-        glColor3ub(110,10,255);
+        switch (game.getColor()) {
+            case 'r': glColor3ub(245, 100, 35);
+                      break;
+            case 'b': glColor3ub(35, 100, 245);
+                      break;
+            case 'g': glColor3ub(10, 200, 35);
+                      break;
+        }
+
          glScalef(4,4,4);
         glutSolidSphere(.45,16,16);
         glPopMatrix();

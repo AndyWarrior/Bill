@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1429595425 source:c:\users\andres\documents\programas\bill\main.cpp
+1429652942 source:c:\users\andres\documents\programas\bill\main.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
@@ -16,7 +16,7 @@
 	"Player.h"
 	<iostream>
 
-1429596999 c:\users\andres\documents\programas\bill\target.h
+1429653499 c:\users\andres\documents\programas\bill\target.h
 	<string.h>
 	<GLUT/glut.h>
 	<windows.h>

@@ -146,7 +146,7 @@ void Target::moveL1(){
 
 void Target::moveL3(){
 /* Moves the object forward faster, draws it and then checks if it needs to be reseted.*/
-    z+=2;
+    z+=.5;
 
     glPushMatrix();
     glTranslated(0,0,z);

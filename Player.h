@@ -9,7 +9,6 @@ class Player{
         void changeColor();
         char getColor();
         void setLevel(int l);
-        void drawPlayer();
 
     private:
         char colors[3] = {'b', 'r', 'g'};
@@ -40,7 +39,4 @@ void Player::setLevel(int l){
     level = l;
 }
 
-void Player::drawPlayer(){
-    glutSolidSphere(1,2,5);
-}
 #endif // PLAYER_H_INCLUDED

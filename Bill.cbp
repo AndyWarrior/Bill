@@ -45,6 +45,9 @@
 		<Unit filename="GameT.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="Imageloader.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Player.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

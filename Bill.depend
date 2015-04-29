@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1429652942 source:c:\users\andres\documents\programas\bill\main.cpp
+1430283023 source:c:\users\andres\documents\programas\bill\main.cpp
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
 	"GameT.h"
+	"Imageloader.h"
 	<iostream>
 
 1421537453 c:\users\andres\desktop\glut\include\gl\glut.h
@@ -11,18 +12,27 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1429596709 c:\users\andres\documents\programas\bill\gamet.h
+1430274243 c:\users\andres\documents\programas\bill\gamet.h
 	"Target.h"
 	"Player.h"
-	<iostream>
-
-1429653499 c:\users\andres\documents\programas\bill\target.h
-	<string.h>
 	<GLUT/glut.h>
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
 
-1429420862 c:\users\andres\documents\programas\bill\player.h
+1430274243 c:\users\andres\documents\programas\bill\target.h
+	<string.h>
+	<GLUT/glut.h>
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	"Imageloader.h"
+	<assert.h>
+	<fstream>
+	"imageloader.h"
+
+1430261586 c:\users\andres\documents\programas\bill\imageloader.h
+
+1430261586 c:\users\andres\documents\programas\bill\player.h
 	<iostream>
 

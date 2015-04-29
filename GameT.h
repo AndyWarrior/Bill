@@ -34,6 +34,8 @@ class GameT
         double wHeight;
         Player player;
         GLubyte numbers[10] = { '0', '1', '2', '3','4', '5', '6', '7', '8', '9'};
+        GLubyte sc[7] = {'S', 'c', 'o', 'r', 'e', ':',' '};
+        GLubyte tm[6] = {'T', 'i', 'm', 'e', ':',' '};
         GLint arr[5] = {0,0,0,0,0};
 
 };
@@ -41,14 +43,14 @@ class GameT
 GameT::GameT(){
 /* Game usually starts on level 1. */
     level = 1;
-    timer = 10;
+    timer = 90;
     score = 0;
     player = Player();
 }
 
 GameT::GameT(int l){
     level = l;
-    timer = 10;
+    timer = 90;
     score = 0;
     player = Player();
     changeLevel(l);
@@ -135,22 +137,42 @@ bool GameT::updateTimer(){
 }
 
 void GameT::Score(){
+
+    glPushMatrix();
+    //
+    //glScaled(1.0, 1.0, 0.01);
+    //glTranslatef(1.0,1.0,0.01);
     double xRaster = -3.5;
     glColor3ub(255,255,255);
     //left score
     glRasterPos2d(xRaster, 3);
+    for(int i = 0; i < 7; i++){
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, sc[i]);
+    }
     int aux = score ;
+    xRaster += 1.5;
+    glRasterPos2d(xRaster, 3);
     do{
-        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, numbers[(aux % 10)]);
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, numbers[(aux % 10)]);
         aux = aux/10;
-        xRaster -= .15;
+        xRaster -= .20;
         glRasterPos2d(xRaster, 3);
     }while(aux > 0);
     int one = arr[0];
     int two = arr[1];
      glRasterPos2i(3.5,3);
-    glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, numbers[two]); //D
-    glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, numbers[one]); //C
+     for(int i = 0; i < 6; i++){
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, tm[i]);
+    }
+    if (timer >= 10)
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, numbers[two]); //D
+    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, numbers[one]); //C
+
+
+    glPopMatrix();
+
+
+
 
 }
 #endif // GAMET_H_INCLUDED
